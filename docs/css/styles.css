@@ -164,6 +164,17 @@ a:hover {
   height: var(--header-height);
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+}
+
 .logo {
   font-size: var(--text-xl);
   font-weight: 600;

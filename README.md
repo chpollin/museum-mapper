@@ -1,8 +1,12 @@
-# museum-mapper
+<div align="center">
+  <img src="docs/assets/img/logo.png" alt="museum-mapper logo" width="300">
 
-**AI-powered thesaurus mapping for museum collections**
+  # museum-mapper
 
-Browser-based tool to automatically map 40,000+ heterogeneous object names to standardized thesaurus terms.
+  **AI-powered thesaurus mapping for museum collections**
+
+  Browser-based tool to automatically map 40,000+ heterogeneous object names to standardized thesaurus terms.
+</div>
 
 ---
 
