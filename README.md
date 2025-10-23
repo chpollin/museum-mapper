@@ -43,10 +43,16 @@ Browser-based tool to automatically map 40,000+ heterogeneous object names to st
 
 ## Documentation
 
+### Project Documentation
+- **[STATUS.md](STATUS.md)** - 📊 Complete project status & implementation details
 - **[project.md](knowledge/project.md)** - Detailed project overview
 - **[requirements.md](knowledge/requirements.md)** - User stories & acceptance criteria
 - **[design.md](knowledge/design.md)** - UI/UX specification
 - **[data.md](knowledge/data.md)** - Input data structure & examples
+
+### Testing
+- **[test-data/README.md](data/test-data/README.md)** - Test files overview
+- **[test-data/TESTPLAN.md](data/test-data/TESTPLAN.md)** - Step-by-step testing guide
 
 ---
 
