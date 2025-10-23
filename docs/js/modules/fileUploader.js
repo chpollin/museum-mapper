@@ -171,9 +171,19 @@ export class FileUploader {
     const missing = required.filter(col => !columns.includes(col));
 
     if (missing.length > 0) {
+      // Check if user uploaded wrong file type
+      let suggestion = '';
+      if (type === 'thesaurus' && columns.includes('Begriff bereinigt')) {
+        suggestion = '\n\nHinweis: Dies sieht aus wie eine Referenz-Datei. Bitte laden Sie sie im "Referenz-Mappings" Feld hoch.';
+      } else if (type === 'objects' && columns.includes('term')) {
+        suggestion = '\n\nHinweis: Dies sieht aus wie eine Thesaurus-Datei. Bitte laden Sie sie im "Thesaurus" Feld hoch.';
+      } else if (type === 'reference' && columns.includes('TermID')) {
+        suggestion = '\n\nHinweis: Dies sieht aus wie eine Thesaurus-Datei. Bitte laden Sie sie im "Thesaurus" Feld hoch.';
+      }
+
       return {
         valid: false,
-        error: `Fehlende Spalten: ${missing.join(', ')}`
+        error: `Fehlende Spalten für ${type}: ${missing.join(', ')}${suggestion}`
       };
     }
 

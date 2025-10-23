@@ -7,7 +7,7 @@ export class AIClient {
   constructor(apiKey) {
     this.apiKey = apiKey;
     this.apiUrl = 'https://api.anthropic.com/v1/messages';
-    this.model = 'claude-haiku-4-20250514';
+    this.model = 'claude-3-5-haiku-20241022';
     this.maxTokens = 1024;
   }
 
