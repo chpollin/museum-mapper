@@ -3,6 +3,7 @@
  */
 
 import { RuleEngine } from './ruleEngine.js';
+import { AIClient } from './aiClient.js';
 
 export class MappingProcessor {
   constructor(app) {
@@ -160,10 +161,64 @@ export class MappingProcessor {
   }
 
   async processWithAI(items, results, thesaurus, apiKey, confidenceThreshold) {
-    // TODO: Implement AI processing with Claude Haiku 4.5
-    // For now, just log that it would be processed
-    console.log(`AI processing would improve ${items.length} items`);
-    console.log('AI integration coming next...');
+    const aiClient = new AIClient(apiKey);
+
+    // Extract objects to process
+    const objectsToProcess = items.map(item => item.obj);
+
+    try {
+      // Process with AI (batches of 20)
+      const aiResults = await aiClient.processBatch(objectsToProcess, thesaurus, 20);
+
+      // Update results with AI mappings
+      for (let i = 0; i < aiResults.length; i++) {
+        const aiResult = aiResults[i];
+        const item = items[i];
+        const resultIndex = item.index;
+
+        if (aiResult.term && aiResult.confidence >= 50) {
+          // Find full thesaurus entry
+          const thesaurusEntry = thesaurus.find(t =>
+            t.term.toLowerCase() === aiResult.term.toLowerCase()
+          );
+
+          if (thesaurusEntry) {
+            // Update the result with AI mapping
+            results[resultIndex] = {
+              ...results[resultIndex],
+              thesaurusTerm: aiResult.term,
+              cn: thesaurusEntry.CN || '',
+              termId: thesaurusEntry.TermID || '',
+              termMasterId: thesaurusEntry.TermMasterID || '',
+              confidence: aiResult.confidence,
+              status: this.getStatus(aiResult.confidence, confidenceThreshold),
+              method: 'KI (Claude Haiku 4.5)',
+              reasoning: aiResult.reasoning
+            };
+
+            // Update stats
+            const oldStatus = results[resultIndex].status;
+            const newStatus = this.getStatus(aiResult.confidence, confidenceThreshold);
+
+            // Adjust stats counters
+            if (oldStatus === 'OK') this.stats.ok--;
+            else if (oldStatus === 'PRÜFEN') this.stats.check--;
+            else if (oldStatus === 'MUSS_BEARBEITET_WERDEN') this.stats.error--;
+
+            if (newStatus === 'OK') this.stats.ok++;
+            else if (newStatus === 'PRÜFEN') this.stats.check++;
+            else if (newStatus === 'MUSS_BEARBEITET_WERDEN') this.stats.error++;
+          }
+        }
+      }
+
+      console.log('✓ AI processing complete');
+      console.log('Updated stats:', this.stats);
+
+    } catch (error) {
+      console.error('AI processing failed:', error);
+      alert(`KI-Verarbeitung fehlgeschlagen:\n${error.message}\n\nDie regelbasierten Ergebnisse bleiben erhalten.`);
+    }
   }
 
   getStatus(confidence, threshold) {

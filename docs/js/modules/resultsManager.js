@@ -182,11 +182,67 @@ export class ResultsManager {
   exportResults(type) {
     const { results } = this.app.state.data;
     const toExport = type === 'unresolved'
-      ? results.filter(r => r.status === 'MUSS_BEARBEITET_WERDEN')
+      ? results.filter(r => r.status === 'MUSS_BEARBEITED_WERDEN')
       : results;
 
-    // For now, export as JSON (Excel export will be implemented later)
-    const dataStr = JSON.stringify(toExport, null, 2);
+    // Check if SheetJS is loaded
+    if (window.XLSX) {
+      this.exportAsExcel(toExport, type);
+    } else {
+      // Fallback to JSON
+      this.exportAsJSON(toExport, type);
+    }
+  }
+
+  exportAsExcel(data, type) {
+    const XLSX = window.XLSX;
+
+    // Prepare data for Excel
+    const excelData = data.map(r => ({
+      'Objektname': r.objectName,
+      'Häufigkeit': r.frequency || '',
+      'Thesaurus-Begriff': r.thesaurusTerm,
+      'CN-Code': r.cn,
+      'Term ID': r.termId,
+      'Term Master ID': r.termMasterId,
+      'Konfidenz': r.confidence ? `${r.confidence}%` : '',
+      'Status': r.status,
+      'Methode': r.method,
+      'Vermerk': r.method.includes('KI') ? 'Thesaurus-Begriff wurde mit Hilfe von KI zugeordnet' : '',
+      'Begründung': r.reasoning || ''
+    }));
+
+    // Create workbook and worksheet
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(excelData);
+
+    // Set column widths
+    ws['!cols'] = [
+      { wch: 40 },  // Objektname
+      { wch: 10 },  // Häufigkeit
+      { wch: 25 },  // Thesaurus-Begriff
+      { wch: 35 },  // CN-Code
+      { wch: 12 },  // Term ID
+      { wch: 15 },  // Term Master ID
+      { wch: 10 },  // Konfidenz
+      { wch: 18 },  // Status
+      { wch: 25 },  // Methode
+      { wch: 50 },  // Vermerk
+      { wch: 50 }   // Begründung
+    ];
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Mappings');
+
+    // Generate filename with timestamp
+    const timestamp = new Date().toISOString().replace(/:/g, '-').slice(0, -5);
+    const filename = `museum-mapper-${type}-${timestamp}.xlsx`;
+
+    // Write file
+    XLSX.writeFile(wb, filename);
+  }
+
+  exportAsJSON(data, type) {
+    const dataStr = JSON.stringify(data, null, 2);
     const blob = new Blob([dataStr], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
 
