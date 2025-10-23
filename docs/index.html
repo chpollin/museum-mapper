@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered thesaurus mapping for museum collections">
+    <title>museum-mapper - Thesaurus Mapping Tool</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">museum-mapper</h1>
+                <button class="btn-help" aria-label="Hilfe">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                        <circle cx="10" cy="10" r="8" stroke-width="2"/>
+                        <path d="M10 14v.5M10 6.5c-1.5 0-2.5 1-2.5 2.5h0M10 10.5v1" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Phase Navigation -->
+    <nav class="phase-nav" aria-label="Prozess-Navigation">
+        <div class="container">
+            <ol class="phase-list">
+                <li class="phase-item active" data-phase="1">
+                    <span class="phase-number">1</span>
+                    <span class="phase-label">Upload</span>
+                </li>
+                <li class="phase-item" data-phase="2">
+                    <span class="phase-number">2</span>
+                    <span class="phase-label">Konfiguration</span>
+                </li>
+                <li class="phase-item" data-phase="3">
+                    <span class="phase-number">3</span>
+                    <span class="phase-label">Verarbeitung</span>
+                </li>
+                <li class="phase-item" data-phase="4">
+                    <span class="phase-number">4</span>
+                    <span class="phase-label">Ergebnisse</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="app-main">
+        <div class="container">
+
+            <!-- Phase 1: Upload -->
+            <section id="phase-1" class="phase-section active" aria-labelledby="phase-1-title">
+                <header class="phase-header">
+                    <h2 id="phase-1-title">Daten hochladen</h2>
+                    <p class="phase-description">
+                        Laden Sie Ihre Objektnamen, Thesaurus und optional Referenz-Mappings hoch.
+                    </p>
+                </header>
+
+                <div class="upload-grid">
+                    <!-- Upload: Object Names -->
+                    <div class="upload-card">
+                        <h3>Objektnamen <span class="required">*</span></h3>
+                        <div class="dropzone" id="dropzone-objects" data-accept=".xlsx,.xls,.csv">
+                            <svg class="upload-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                                <path d="M24 32V16M16 24l8-8 8 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 32v8a4 4 0 004 4h24a4 4 0 004-4v-8" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <p class="dropzone-text">Datei ablegen oder klicken</p>
+                            <p class="dropzone-meta">Excel oder CSV (.xlsx, .xls, .csv)</p>
+                            <input type="file" id="file-objects" accept=".xlsx,.xls,.csv" hidden>
+                        </div>
+                        <div class="upload-status" id="status-objects" hidden>
+                            <div class="status-icon status-success">✓</div>
+                            <div class="status-content">
+                                <p class="status-filename">Objektnamen.xlsx</p>
+                                <p class="status-info">40.276 Einträge</p>
+                                <p class="status-columns">Spalten: ObjectName, AnzahlvonObjectName</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upload: Thesaurus -->
+                    <div class="upload-card">
+                        <h3>Thesaurus <span class="required">*</span></h3>
+                        <div class="dropzone" id="dropzone-thesaurus" data-accept=".xlsx,.xls,.csv">
+                            <svg class="upload-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                                <path d="M24 32V16M16 24l8-8 8 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 32v8a4 4 0 004 4h24a4 4 0 004-4v-8" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <p class="dropzone-text">Datei ablegen oder klicken</p>
+                            <p class="dropzone-meta">Excel oder CSV (.xlsx, .xls, .csv)</p>
+                            <input type="file" id="file-thesaurus" accept=".xlsx,.xls,.csv" hidden>
+                        </div>
+                        <div class="upload-status" id="status-thesaurus" hidden></div>
+                    </div>
+
+                    <!-- Upload: Reference Mappings (Optional) -->
+                    <div class="upload-card">
+                        <h3>Referenz-Mappings <span class="optional">optional</span></h3>
+                        <div class="dropzone" id="dropzone-reference" data-accept=".xlsx,.xls,.csv">
+                            <svg class="upload-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                                <path d="M24 32V16M16 24l8-8 8 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 32v8a4 4 0 004 4h24a4 4 0 004-4v-8" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <p class="dropzone-text">Datei ablegen oder klicken</p>
+                            <p class="dropzone-meta">Excel oder CSV (.xlsx, .xls, .csv)</p>
+                            <input type="file" id="file-reference" accept=".xlsx,.xls,.csv" hidden>
+                        </div>
+                        <div class="upload-status" id="status-reference" hidden></div>
+                    </div>
+                </div>
+
+                <div class="phase-actions">
+                    <button class="btn-primary" id="btn-continue-1" disabled>
+                        Weiter zur Konfiguration
+                    </button>
+                </div>
+            </section>
+
+            <!-- Phase 2: Configuration -->
+            <section id="phase-2" class="phase-section" aria-labelledby="phase-2-title" hidden>
+                <header class="phase-header">
+                    <h2 id="phase-2-title">Mapping-Methode konfigurieren</h2>
+                    <p class="phase-description">
+                        Wählen Sie die Mapping-Strategie und konfigurieren Sie die Parameter.
+                    </p>
+                </header>
+
+                <div class="config-section">
+                    <h3>Mapping-Methode</h3>
+
+                    <div class="option-card" data-method="rules">
+                        <input type="radio" id="method-rules" name="method" value="rules">
+                        <label for="method-rules">
+                            <div class="option-header">
+                                <strong>Nur Regelbasiert</strong>
+                                <span class="badge badge-free">Kostenlos</span>
+                            </div>
+                            <p class="option-description">Pattern-Matching und Keyword-Extraktion</p>
+                            <ul class="option-metrics">
+                                <li>Erwartete Genauigkeit: ~40-50%</li>
+                                <li>Geschätzte Dauer: ~7 Minuten</li>
+                                <li>Kosten: 0 EUR</li>
+                            </ul>
+                        </label>
+                    </div>
+
+                    <div class="option-card active" data-method="hybrid">
+                        <input type="radio" id="method-hybrid" name="method" value="hybrid" checked>
+                        <label for="method-hybrid">
+                            <div class="option-header">
+                                <strong>Hybrid (Regeln + KI)</strong>
+                                <span class="badge badge-recommended">Empfohlen</span>
+                            </div>
+                            <p class="option-description">Regelbasiert + Claude Haiku 4.5 für komplexe Fälle</p>
+                            <ul class="option-metrics">
+                                <li>Erwartete Genauigkeit: ~70-80%</li>
+                                <li>Geschätzte Dauer: ~45 Minuten</li>
+                                <li>Kosten: ~5-10 EUR</li>
+                            </ul>
+                        </label>
+
+                        <div class="option-settings">
+                            <div class="form-group">
+                                <label for="api-key">Anthropic API Key</label>
+                                <input
+                                    type="password"
+                                    id="api-key"
+                                    placeholder="sk-ant-..."
+                                    autocomplete="off"
+                                >
+                                <p class="form-help">
+                                    <a href="https://console.anthropic.com/" target="_blank" rel="noopener">
+                                        API Key erhalten
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <h3>Qualitätsschwellen</h3>
+                    <div class="form-group">
+                        <label for="confidence-threshold">
+                            Als "OK" markieren ab: <strong id="threshold-value">80</strong>%
+                        </label>
+                        <input
+                            type="range"
+                            id="confidence-threshold"
+                            min="70"
+                            max="95"
+                            value="80"
+                            step="5"
+                            class="slider"
+                        >
+                        <div class="slider-labels">
+                            <span>70%</span>
+                            <span>95%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-actions">
+                    <button class="btn-secondary" id="btn-back-2">Zurück</button>
+                    <button class="btn-primary" id="btn-start-processing">Verarbeitung starten</button>
+                </div>
+            </section>
+
+            <!-- Phase 3: Processing -->
+            <section id="phase-3" class="phase-section" aria-labelledby="phase-3-title" hidden>
+                <header class="phase-header">
+                    <h2 id="phase-3-title">Verarbeitung läuft...</h2>
+                    <p class="phase-description">
+                        Ihre Daten werden verarbeitet. Dies kann einige Minuten dauern.
+                    </p>
+                </header>
+
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <p class="progress-label">Fortschritt</p>
+                        <p class="progress-percentage" id="progress-percentage">0%</p>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <p id="progress-text">Verarbeitet: 0 / 40.276 (0%)</p>
+                        <p class="text-secondary" id="progress-time">Geschätzte Zeit: Wird berechnet...</p>
+                    </div>
+
+                    <!-- Optional: Organic circles visualization -->
+                    <div class="progress-organic" id="progress-organic" aria-hidden="true">
+                        <svg viewBox="0 0 480 24" id="progress-circles"></svg>
+                    </div>
+                </div>
+
+                <div class="status-distribution">
+                    <h3>Status-Verteilung</h3>
+                    <div class="status-bars" id="status-bars">
+                        <div class="status-bar">
+                            <div class="status-bar-header">
+                                <span class="status-bar-label status-ok">OK</span>
+                                <span class="status-bar-value" id="status-ok-value">0 (0%)</span>
+                            </div>
+                            <div class="status-bar-track">
+                                <div class="status-bar-fill status-ok" id="status-ok-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-bar-header">
+                                <span class="status-bar-label status-check">PRÜFEN</span>
+                                <span class="status-bar-value" id="status-check-value">0 (0%)</span>
+                            </div>
+                            <div class="status-bar-track">
+                                <div class="status-bar-fill status-check" id="status-check-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-bar-header">
+                                <span class="status-bar-label status-error">BEARBEITEN</span>
+                                <span class="status-bar-value" id="status-error-value">0 (0%)</span>
+                            </div>
+                            <div class="status-bar-track">
+                                <div class="status-bar-fill status-error" id="status-error-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="status-bar">
+                            <div class="status-bar-header">
+                                <span class="status-bar-label status-ignore">IGNORIERT</span>
+                                <span class="status-bar-value" id="status-ignore-value">0 (0%)</span>
+                            </div>
+                            <div class="status-bar-track">
+                                <div class="status-bar-fill status-ignore" id="status-ignore-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="current-item" id="current-item" hidden>
+                    <p class="text-secondary">Aktuell verarbeitet:</p>
+                    <p id="current-item-text">"Schamanengürtel" → <strong>Gürtel</strong></p>
+                    <p class="text-xs" id="current-item-meta">Konfidenz: 95% (KI)</p>
+                </div>
+            </section>
+
+            <!-- Phase 4: Results -->
+            <section id="phase-4" class="phase-section" aria-labelledby="phase-4-title" hidden>
+                <header class="phase-header">
+                    <h2 id="phase-4-title">Ergebnisse</h2>
+                    <p class="phase-description">
+                        Überprüfen Sie die Mappings und laden Sie die Ergebnisse herunter.
+                    </p>
+                </header>
+
+                <div class="stats-grid" id="stats-grid">
+                    <div class="stat-card stat-ok">
+                        <div class="stat-number" id="stat-ok">0</div>
+                        <div class="stat-label">OK</div>
+                    </div>
+                    <div class="stat-card stat-check">
+                        <div class="stat-number" id="stat-check">0</div>
+                        <div class="stat-label">PRÜFEN</div>
+                    </div>
+                    <div class="stat-card stat-error">
+                        <div class="stat-number" id="stat-error">0</div>
+                        <div class="stat-label">BEARBEITEN</div>
+                    </div>
+                    <div class="stat-card stat-ignore">
+                        <div class="stat-number" id="stat-ignore">0</div>
+                        <div class="stat-label">IGNORIERT</div>
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <div class="toolbar-left">
+                        <select id="filter-status" class="filter-select">
+                            <option value="all">Alle anzeigen</option>
+                            <option value="ok">Nur OK</option>
+                            <option value="check">Nur PRÜFEN</option>
+                            <option value="error">Nur BEARBEITEN</option>
+                            <option value="ignore">Nur IGNORIERT</option>
+                        </select>
+                        <input
+                            type="search"
+                            id="search-input"
+                            placeholder="Objektnamen suchen..."
+                            class="search-input"
+                        >
+                    </div>
+                    <div class="toolbar-right">
+                        <button class="btn-secondary" id="btn-export-unresolved">
+                            Ungelöste exportieren
+                        </button>
+                        <button class="btn-primary" id="btn-export-all">
+                            Alle exportieren
+                        </button>
+                    </div>
+                </div>
+
+                <div class="results-table-container">
+                    <table class="results-table" id="results-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="objectName">Objektname</th>
+                                <th data-sort="thesaurusTerm">Thesaurus-Begriff</th>
+                                <th data-sort="confidence">Konfidenz</th>
+                                <th data-sort="status">Status</th>
+                                <th>Aktionen</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-tbody">
+                            <!-- Results will be populated via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="phase-actions">
+                    <button class="btn-secondary" id="btn-restart">Neue Verarbeitung</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Detail Modal -->
+    <dialog class="detail-modal" id="detail-modal">
+        <div class="modal-header">
+            <h3 id="modal-title">Objektdetails</h3>
+            <button class="modal-close" id="modal-close" aria-label="Schließen">×</button>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <!-- Content populated via JavaScript -->
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" id="btn-edit-mapping">Mapping bearbeiten</button>
+            <button class="btn-primary" id="btn-confirm-mapping">Als korrekt bestätigen</button>
+        </div>
+    </dialog>
+
+    <!-- Help Modal -->
+    <dialog class="help-modal" id="help-modal">
+        <div class="modal-header">
+            <h3>Hilfe</h3>
+            <button class="modal-close" id="help-close" aria-label="Schließen">×</button>
+        </div>
+        <div class="modal-body">
+            <h4>Was ist museum-mapper?</h4>
+            <p>museum-mapper ist ein Tool zur automatischen Zuordnung von Objektnamen zu standardisierten Thesaurus-Begriffen.</p>
+
+            <h4>Wie funktioniert es?</h4>
+            <ol>
+                <li>Laden Sie Ihre Excel/CSV-Dateien hoch</li>
+                <li>Wählen Sie die Mapping-Methode (regelbasiert oder hybrid mit KI)</li>
+                <li>Starten Sie die Verarbeitung</li>
+                <li>Überprüfen und exportieren Sie die Ergebnisse</li>
+            </ol>
+
+            <h4>Datenschutz</h4>
+            <p>Alle Daten werden lokal in Ihrem Browser verarbeitet. Nur bei Verwendung der KI-Option werden Daten an Anthropic gesendet.</p>
+        </div>
+    </dialog>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

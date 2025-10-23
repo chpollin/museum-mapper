@@ -91,8 +91,9 @@ Diese müssen zu standardisierten Thesaurus-Begriffen gemappt werden:
 
 ### Stack
 - **Frontend:** Vanilla JavaScript, HTML5, CSS3
-- **Libraries:** SheetJS (Excel), PapaParse (CSV)
-- **AI:** Claude Haiku 4.5 API (optional)
+- **Typography:** Crimson Pro (headings), System Fonts (body)
+- **Libraries:** SheetJS (Excel), PapaParse (CSV), Anthropic SDK
+- **AI:** Claude Haiku 4.5 API (optional, CORS-enabled)
 - **Hosting:** GitHub Pages (kostenlos, statisch)
 
 ### Architektur
@@ -103,9 +104,9 @@ Excel Upload → Browser Processing → Enhanced Excel Download
 ```
 
 ### Performance
-- Verarbeitung: ~100-200 Einträge/Sekunde (regelbasiert)
-- API: ~50 Einträge/Sekunde (mit KI)
-- Total: 2 Stunden für 40.000 Einträge
+- Verarbeitung: ~100-200 Einträge/Sekunde (regelbasiert) → ~3-7 Min. für 40k
+- API: ~20-40 Einträge/Sekunde (mit KI) → ~15-30 Min. für 40k
+- Total: ~45 Minuten für 40.000 Einträge (Hybrid-Modus)
 
 ---
 
