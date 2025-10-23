@@ -1,0 +1,80 @@
+====================================================================================================
+MUSEUM MAPPER - REAL DATA EXAMPLES
+====================================================================================================
+
+### DIVERSE OBJECT NAME EXAMPLES (25) ###
+
+1. Pfeil                               (freq: 12662)
+2. Speer                               (freq: 3116)
+3. Münze                               (freq: 2171)
+4. Gefäss                              (freq: 1873)
+5. Pfeilspitze                         (freq: 1824)
+6. Armring                             (freq: 1721)
+7. Schüssel                            (freq: 1474)
+8. Bogen                               (freq: 1446)
+9. Korb                                (freq: 1266)
+10. Armband                             (freq: 1171)
+11. Mao-Abzeichen                       (freq: 1165)
+12. Lanze                               (freq: 1045)
+13. Randstück                           (freq: 957)
+14. Halskette                           (freq: 938)
+15. Messer                              (freq: 871)
+16. Gürtel                              (freq: 865)
+17. Amulett                             (freq: 847)
+18. Löffel                              (freq: 826)
+19. Keule                               (freq: 826)
+20. Topf                                (freq: 787)
+21. Halsschmuck                         (freq: 754)
+22. Schale                              (freq: 749)
+23. Kamm                                (freq: 741)
+24. Figur                               (freq: 686)
+25. Kopfschmuck                         (freq: 683)
+
+
+### REFERENCE MAPPING EXAMPLES (20) ###
+
+Ahnenfigur                          -> Figur                     (freq: 57)
+Amulettkapsel                       -> Amulettbehälter           (freq: 50)
+Arm- Fußreifen                      -> Armreifen                 (freq: 80)
+Blumenkorb                          -> Korb                      (freq: 85)
+Bruchstücke                         -> Bruchstück                (freq: 54)
+Collier                             -> Halsschmuck               (freq: 50)
+Deckelkorb                          -> Korb                      (freq: 143)
+Dolch mit Scheide                   -> Dolch                     (freq: 186)
+Elfenbeinarmring                    -> Armring                   (freq: 59)
+Esslöffel                           -> Löffel                    (freq: 62)
+Farbendruckbild                     -> Druck                     (freq: 61)
+Färbeschablone_x000d_
+              -> Schablone                 (freq: 64)
+Faserschurz                         -> Schurz                    (freq: 64)
+Feuersteinspahn klein und dünn      -> Feuerstein                (freq: 110)
+Feuersteinwerkzeug                  -> Feuerstein                (freq: 121)
+Figur, Frau                         -> Figur                     (freq: 58)
+Figürchen                           -> Figur                     (freq: 71)
+Flachbeil                           -> Beil                      (freq: 99)
+Frauengürtel                        -> Gürtel                    (freq: 75)
+Frauenrock                          -> Rock                      (freq: 77)
+
+
+### THESAURUS HIERARCHY EXAMPLES (20) ###
+
+CN: AUT.AAA.AAC.AAH.ADL.AAB                       Term: Objektsammlung                 ID: 2220616
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB                   Term: Bekleidung                     ID: 2220623
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA               Term: Militärische Bekleidung        ID: 2220624
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA.AAA           Term: Rüstung                        ID: 2220625
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA.AAB           Term: Uniform                        ID: 2220626
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAD               Term: Penisfutteral                  ID: 2220629
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAE               Term: Hose                           ID: 2220630
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAF               Term: Poncho                         ID: 2220631
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAG               Term: Bluse                          ID: 2220640
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH               Term: Kleid                          ID: 2220642
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH.AAA           Term: Überkleid                      ID: 2221212
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH.AAB           Term: Unterkleid                     ID: 2222275
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAI               Term: Gürtel                         ID: 2220643
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAI.AAA           Term: Gürtelgehänge                  ID: 2222368
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAJ               Term: Rock                           ID: 2220644
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAJ.AAA           Term: Unterrock                      ID: 2222419
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAK               Term: Hemd                           ID: 2220658
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL               Term: Kopfbedeckung                  ID: 2220672
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAA           Term: Hut                            ID: 2220687
+CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAB           Term: Kappe                          ID: 2220690

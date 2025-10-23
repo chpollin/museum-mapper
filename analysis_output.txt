@@ -1,0 +1,273 @@
+====================================================================================================
+COMPREHENSIVE DATA ANALYSIS - MUSEUM MAPPER PROJECT
+====================================================================================================
+
+
+### FILE 1: WMW_Object_Names_Haeufigkeit.xlsx ###
+Total unique object names: 42024
+Total object count (sum of frequencies): 198615
+Average frequency: 4.73
+Median frequency: 1.00
+
+
+### OBJECT NAME CATEGORIES (from top 100) ###
+
+1. SIMPLE NAMES (single word, short):
+   - Pfeil                          (frequency: 12662)
+   - Speer                          (frequency:  3116)
+   - Münze                          (frequency:  2171)
+   - Gefäss                         (frequency:  1873)
+   - Pfeilspitze                    (frequency:  1824)
+   - Armring                        (frequency:  1721)
+   - Schüssel                       (frequency:  1474)
+   - Bogen                          (frequency:  1446)
+   - Korb                           (frequency:  1266)
+   - Armband                        (frequency:  1171)
+   - Lanze                          (frequency:  1045)
+   - Randstück                      (frequency:   957)
+   - Halskette                      (frequency:   938)
+   - Messer                         (frequency:   871)
+   - Gürtel                         (frequency:   865)
+
+2. DIMINUTIVES (German diminutive forms):
+   - Mao-Abzeichen                  (frequency:  1165)
+   - Körbchen                       (frequency:   639)
+   - Töpfchen                       (frequency:   272)
+   - Täschchen                      (frequency:   244)
+   - Tonköpfchen                    (frequency:   213)
+
+3. COMPOUND NAMES (hyphenated or combined):
+   - Pfeil-oder Lanzenspitze        (frequency:   637)
+   - Inschrift- oder Bildrolle      (frequency:   252)
+
+4. MATERIAL+OBJECT COMBINATIONS:
+   - Steinbeil                      (frequency:   497)
+   - Tongefäß                       (frequency:   444)
+   - Holzfigur                      (frequency:   262)
+   - Steingerät                     (frequency:   234)
+   - Goldgewicht                    (frequency:   209)
+   - Tonfigur                       (frequency:   195)
+
+5. DESCRIPTIVE NAMES (multi-word):
+
+6. CULTURAL-SPECIFIC NAMES:
+   - Chinesische Arznei             (frequency:   381)
+   - Kalebasse                      (frequency:   367)
+   - Kris                           (frequency:   359)
+
+7. LONG DESCRIPTIVE NAMES:
+
+
+### TOP 25 MOST FREQUENT OBJECT NAMES ###
+ 1. Pfeil                                12662 occurrences
+ 2. Speer                                 3116 occurrences
+ 3. Münze                                 2171 occurrences
+ 4. Gefäss                                1873 occurrences
+ 5. Pfeilspitze                           1824 occurrences
+ 6. Armring                               1721 occurrences
+ 7. Schüssel                              1474 occurrences
+ 8. Bogen                                 1446 occurrences
+ 9. Korb                                  1266 occurrences
+10. Armband                               1171 occurrences
+11. Mao-Abzeichen                         1165 occurrences
+12. Lanze                                 1045 occurrences
+13. Randstück                              957 occurrences
+14. Halskette                              938 occurrences
+15. Messer                                 871 occurrences
+16. Gürtel                                 865 occurrences
+17. Amulett                                847 occurrences
+18. Löffel                                 826 occurrences
+19. Keule                                  826 occurrences
+20. Topf                                   787 occurrences
+21. Halsschmuck                            754 occurrences
+22. Schale                                 749 occurrences
+23. Kamm                                   741 occurrences
+24. Figur                                  686 occurrences
+25. Kopfschmuck                            683 occurrences
+
+
+====================================================================================================
+### FILE 2: WMW_ObjectName_gruppiert_bis_incl_13x.xlsx ###
+Total rows: 1745
+
+
+### CLEANING MAPPINGS (Before -> After) ###
+
+1. CONSOLIDATED MAPPINGS (variants mapped to standard terms):
+   Ahnenfigur                          -> Figur                     (freq: 57)
+   Amulettkapsel                       -> Amulettbehälter           (freq: 50)
+   Arm- Fußreifen                      -> Armreifen                 (freq: 80)
+   Blumenkorb                          -> Korb                      (freq: 85)
+   Bruchstücke                         -> Bruchstück                (freq: 54)
+   Collier                             -> Halsschmuck               (freq: 50)
+   Deckelkorb                          -> Korb                      (freq: 143)
+   Dolch mit Scheide                   -> Dolch                     (freq: 186)
+   Elfenbeinarmring                    -> Armring                   (freq: 59)
+   Esslöffel                           -> Löffel                    (freq: 62)
+   Farbendruckbild                     -> Druck                     (freq: 61)
+   Färbeschablone_x000d_
+              -> Schablone                 (freq: 64)
+   Faserschurz                         -> Schurz                    (freq: 64)
+   Feuersteinspahn klein und dünn      -> Feuerstein                (freq: 110)
+   Feuersteinwerkzeug                  -> Feuerstein                (freq: 121)
+   Figur, Frau                         -> Figur                     (freq: 58)
+   Figürchen                           -> Figur                     (freq: 71)
+   Flachbeil                           -> Beil                      (freq: 99)
+   Frauengürtel                        -> Gürtel                    (freq: 75)
+   Frauenrock                          -> Rock                      (freq: 77)
+
+2. EXCLUDED ITEMS (marked with *):
+   Als Imitation ausgeschieden         EXCLUDED (freq: 81)
+   GETAUSCHT                           EXCLUDED (freq: 53)
+   Getauscht gegen Post 25 aus 1923    EXCLUDED (freq: 65)
+   Getauscht gegen Post 4 aus 1928     EXCLUDED (freq: 84)
+   der Bibliothek übergeben            EXCLUDED (freq: 21)
+
+3. OBJECTS REQUIRING NO CLEANUP (kept as-is):
+   Achselschnur                        (freq: 72)
+   Ahle                                (freq: 51)
+   Amulett                             (freq: 837)
+   Amulettbehälter                     (freq: 66)
+   Angelhaken                          (freq: 124)
+   Anhänger                            (freq: 401)
+   Anhängsel                           (freq: 135)
+   Armband                             (freq: 1171)
+   Armbrust                            (freq: 50)
+   Armreif                             (freq: 553)
+   Armreifen                           (freq: 424)
+   Armring                             (freq: 1736)
+   Armringe                            (freq: 55)
+   Armschmuck                          (freq: 402)
+   Armspange                           (freq: 128)
+   Ausgeschieden                       (freq: 52)
+   Axt                                 (freq: 350)
+   Axtklinge                           (freq: 107)
+   Band                                (freq: 129)
+   Baststoff                           (freq: 80)
+
+
+====================================================================================================
+### FILE 3: WMW_Objektname_Thesaurus.xlsx ###
+Total thesaurus entries: 3157
+
+Hierarchy depth distribution:
+  Level 6: 1 entries
+  Level 7: 25 entries
+  Level 8: 446 entries
+  Level 9: 269 entries
+  Level 10: 2415 entries
+  Level 11: 1 entries
+
+
+### THESAURUS HIERARCHY EXAMPLES ###
+
+1. CLOTHING HIERARCHY (Bekleidung):
+  AUT.AAA.AAC.AAH.ADL.AAB.AAB                   Bekleidung                     (ID: 2220623)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA               Militärische Bekleidung        (ID: 2220624)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA.AAA           Rüstung                        (ID: 2220625)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA.AAB           Uniform                        (ID: 2220626)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAD               Penisfutteral                  (ID: 2220629)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAE               Hose                           (ID: 2220630)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAF               Poncho                         (ID: 2220631)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAG               Bluse                          (ID: 2220640)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH               Kleid                          (ID: 2220642)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH.AAA           Überkleid                      (ID: 2221212)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH.AAB           Unterkleid                     (ID: 2222275)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAI               Gürtel                         (ID: 2220643)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAI.AAA           Gürtelgehänge                  (ID: 2222368)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAJ               Rock                           (ID: 2220644)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAJ.AAA           Unterrock                      (ID: 2222419)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAK               Hemd                           (ID: 2220658)
+    AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL               Kopfbedeckung                  (ID: 2220672)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAA           Hut                            (ID: 2220687)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAB           Kappe                          (ID: 2220690)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAC           Kopftuch                       (ID: 2220696)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAD           Mütze                          (ID: 2220708)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAE           Kopfband                       (ID: 2221086)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAF           Kopfschnur                     (ID: 2221088)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAG           Turban                         (ID: 2221210)
+      AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAH           Haube                          (ID: 2222233)
+
+2. WEAPONS CATEGORY (Waffe / Jagd):
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD                   Waffe / Jagd                   (ID: 2220648)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAD               Messer                         (ID: 2220652)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAD.AAA           Haumesser                      (ID: 2220659)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAD.AAB           Dolchmesser                    (ID: 2220660)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAD.AAC           Feuersteinmesser               (ID: 2220661)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAD.AAD           Rasiermesser                   (ID: 2221135)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAE               Dolch                          (ID: 2220653)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAL.AAB           Schwertscheide                 (ID: 2222252)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAM               Schwert                        (ID: 2220704)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.AAS               Zeremonialwaffe                (ID: 2220733)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAD.ABL               Schusswaffe                    (ID: 2222332)
+
+3. PARENT-CHILD RELATIONSHIPS (Kopfbedeckung - headwear):
+* Kopfbedeckung                  (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL, ID: 2220672)
+  +- Hut                            (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAA, ID: 2220687)
+  +- Kappe                          (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAB, ID: 2220690)
+  +- Kopftuch                       (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAC, ID: 2220696)
+  +- Mütze                          (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAD, ID: 2220708)
+  +- Kopfband                       (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAE, ID: 2221086)
+  +- Kopfschnur                     (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAF, ID: 2221088)
+  +- Turban                         (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAG, ID: 2221210)
+  +- Haube                          (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAH, ID: 2222233)
+  +- Kranz                          (CN: AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAI, ID: 2222285)
+
+4. JEWELRY CATEGORY (Schmuck):
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC                   Schmuck                        (ID: 2220632)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAD               Ohrschmuck                     (ID: 2220636)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAE               Kopfschmuck                    (ID: 2220637)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAE.AAC           Stirnschmuck                   (ID: 2220727)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAH               Brustschmuck                   (ID: 2220641)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAI               Haarschmuck                    (ID: 2220645)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAJ               Federschmuck                   (ID: 2220662)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAJ.AAA           Federkopfschmuck               (ID: 2220663)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAR               Halsschmuck                    (ID: 2220682)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAV               Nasenschmuck                   (ID: 2220709)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.AAX               Schmuckreifen                  (ID: 2220720)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.ABB               Armschmuck                     (ID: 2220934)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.ABC               Beinschmuck                    (ID: 2220935)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.ABF               Fußschmuck                     (ID: 2221023)
+  AUT.AAA.AAC.AAH.ADL.AAB.AAC.ABI               Hüftschmuck                    (ID: 2221068)
+
+
+====================================================================================================
+### COMPREHENSIVE STATISTICS ###
+====================================================================================================
+
+FILE 1 - Object Names with Frequency:
+  - Total unique object names: 42,024
+  - Total objects in collection: 198,615
+  - Most frequent object: Pfeil (12,662 instances)
+  - Objects appearing once: 29,003
+  - Objects appearing 10+ times: 2,255
+  - Objects appearing 100+ times: 222
+
+FILE 2 - Cleaned Mappings:
+  - Total object types processed: 1,745
+  - Objects requiring consolidation: 1,109
+  - Objects excluded from collection: 5
+  - Objects needing no cleanup: 631
+
+FILE 3 - Thesaurus Structure:
+  - Total thesaurus terms: 3,157
+  - Hierarchy levels: 6
+  - Average depth: 9.6
+  - Unique TermMasterIDs: 3,157
+  - Terms with AAT mappings: 14
+
+
+### NAMING PATTERNS DETECTED ###
+  With hyphen              :   3047 (  7.3%)
+  With comma               :   7567 ( 18.0%)
+  Multiple words           :  26592 ( 63.3%)
+  Single word              :  15432 ( 36.7%)
+  Contains numbers         :   2969 (  7.1%)
+  Starts with capital      :  40925 ( 97.4%)
+
+====================================================================================================
+Analysis complete!
+====================================================================================================
+
+
+Detailed examples exported to: data/detailed_examples.txt

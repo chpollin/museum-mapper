@@ -1,0 +1,655 @@
+{
+  "file1_summary": {
+    "total_rows": 42024,
+    "columns": [
+      "ObjectName",
+      "AnzahlvonObjectName"
+    ],
+    "first_50_samples": [
+      {
+        "ObjectName": "Pfeil",
+        "AnzahlvonObjectName": 12662
+      },
+      {
+        "ObjectName": "Speer",
+        "AnzahlvonObjectName": 3116
+      },
+      {
+        "ObjectName": "Münze",
+        "AnzahlvonObjectName": 2171
+      },
+      {
+        "ObjectName": "Gefäss",
+        "AnzahlvonObjectName": 1873
+      },
+      {
+        "ObjectName": "Pfeilspitze",
+        "AnzahlvonObjectName": 1824
+      },
+      {
+        "ObjectName": "Armring",
+        "AnzahlvonObjectName": 1721
+      },
+      {
+        "ObjectName": "Schüssel",
+        "AnzahlvonObjectName": 1474
+      },
+      {
+        "ObjectName": "Bogen",
+        "AnzahlvonObjectName": 1446
+      },
+      {
+        "ObjectName": "Korb",
+        "AnzahlvonObjectName": 1266
+      },
+      {
+        "ObjectName": "Armband",
+        "AnzahlvonObjectName": 1171
+      },
+      {
+        "ObjectName": "Mao-Abzeichen",
+        "AnzahlvonObjectName": 1165
+      },
+      {
+        "ObjectName": "Lanze",
+        "AnzahlvonObjectName": 1045
+      },
+      {
+        "ObjectName": "Randstück",
+        "AnzahlvonObjectName": 957
+      },
+      {
+        "ObjectName": "Halskette",
+        "AnzahlvonObjectName": 938
+      },
+      {
+        "ObjectName": "Messer",
+        "AnzahlvonObjectName": 871
+      },
+      {
+        "ObjectName": "Gürtel",
+        "AnzahlvonObjectName": 865
+      },
+      {
+        "ObjectName": "Amulett",
+        "AnzahlvonObjectName": 847
+      },
+      {
+        "ObjectName": "Löffel",
+        "AnzahlvonObjectName": 826
+      },
+      {
+        "ObjectName": "Keule",
+        "AnzahlvonObjectName": 826
+      },
+      {
+        "ObjectName": "Topf",
+        "AnzahlvonObjectName": 787
+      },
+      {
+        "ObjectName": "Halsschmuck",
+        "AnzahlvonObjectName": 754
+      },
+      {
+        "ObjectName": "Schale",
+        "AnzahlvonObjectName": 749
+      },
+      {
+        "ObjectName": "Kamm",
+        "AnzahlvonObjectName": 741
+      },
+      {
+        "ObjectName": "Figur",
+        "AnzahlvonObjectName": 686
+      },
+      {
+        "ObjectName": "Kopfschmuck",
+        "AnzahlvonObjectName": 683
+      },
+      {
+        "ObjectName": "Tasche",
+        "AnzahlvonObjectName": 654
+      },
+      {
+        "ObjectName": "Schild",
+        "AnzahlvonObjectName": 651
+      },
+      {
+        "ObjectName": "Körbchen",
+        "AnzahlvonObjectName": 639
+      },
+      {
+        "ObjectName": "Pfeil-oder Lanzenspitze",
+        "AnzahlvonObjectName": 637
+      },
+      {
+        "ObjectName": "Maske",
+        "AnzahlvonObjectName": 575
+      },
+      {
+        "ObjectName": "Armreif",
+        "AnzahlvonObjectName": 546
+      },
+      {
+        "ObjectName": "Malerei",
+        "AnzahlvonObjectName": 540
+      },
+      {
+        "ObjectName": "Beil",
+        "AnzahlvonObjectName": 536
+      },
+      {
+        "ObjectName": "Fächer",
+        "AnzahlvonObjectName": 514
+      },
+      {
+        "ObjectName": "Steinbeil",
+        "AnzahlvonObjectName": 497
+      },
+      {
+        "ObjectName": "Armreifen",
+        "AnzahlvonObjectName": 471
+      },
+      {
+        "ObjectName": "Matte",
+        "AnzahlvonObjectName": 463
+      },
+      {
+        "ObjectName": "Hut",
+        "AnzahlvonObjectName": 461
+      },
+      {
+        "ObjectName": "Köcher",
+        "AnzahlvonObjectName": 447
+      },
+      {
+        "ObjectName": "Tongefäß",
+        "AnzahlvonObjectName": 444
+      },
+      {
+        "ObjectName": "Teller",
+        "AnzahlvonObjectName": 438
+      },
+      {
+        "ObjectName": "Fingerring",
+        "AnzahlvonObjectName": 432
+      },
+      {
+        "ObjectName": "Armschmuck",
+        "AnzahlvonObjectName": 407
+      },
+      {
+        "ObjectName": "Anhänger",
+        "AnzahlvonObjectName": 401
+      },
+      {
+        "ObjectName": "Brustschmuck",
+        "AnzahlvonObjectName": 401
+      },
+      {
+        "ObjectName": "Vase",
+        "AnzahlvonObjectName": 391
+      },
+      {
+        "ObjectName": "Trommel",
+        "AnzahlvonObjectName": 387
+      },
+      {
+        "ObjectName": "Chinesische Arznei",
+        "AnzahlvonObjectName": 381
+      },
+      {
+        "ObjectName": "Kalebasse",
+        "AnzahlvonObjectName": 367
+      },
+      {
+        "ObjectName": "Kris",
+        "AnzahlvonObjectName": 359
+      }
+    ]
+  },
+  "file2_summary": {
+    "total_rows": 1745,
+    "columns": [
+      "ObjectName",
+      "AnzahlvonObjectName",
+      "Begriff bereinigt",
+      "Begriff 2"
+    ],
+    "first_30_samples": [
+      {
+        "ObjectName": "Achselschnur",
+        "AnzahlvonObjectName": 72,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Ahle",
+        "AnzahlvonObjectName": 51,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Ahnenfigur",
+        "AnzahlvonObjectName": 57,
+        "Begriff bereinigt": "Figur",
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Als Imitation ausgeschieden",
+        "AnzahlvonObjectName": 81,
+        "Begriff bereinigt": "*",
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Amulett",
+        "AnzahlvonObjectName": 837,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Amulettbehälter",
+        "AnzahlvonObjectName": 66,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Amulettkapsel",
+        "AnzahlvonObjectName": 50,
+        "Begriff bereinigt": "Amulettbehälter",
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Angelhaken",
+        "AnzahlvonObjectName": 124,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Anhänger",
+        "AnzahlvonObjectName": 401,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Anhängsel",
+        "AnzahlvonObjectName": 135,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Arm- Fußreifen",
+        "AnzahlvonObjectName": 80,
+        "Begriff bereinigt": "Armreifen",
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armband",
+        "AnzahlvonObjectName": 1171,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armbrust",
+        "AnzahlvonObjectName": 50,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armreif",
+        "AnzahlvonObjectName": 553,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armreifen",
+        "AnzahlvonObjectName": 424,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armring",
+        "AnzahlvonObjectName": 1736,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armringe",
+        "AnzahlvonObjectName": 55,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armschmuck",
+        "AnzahlvonObjectName": 402,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Armspange",
+        "AnzahlvonObjectName": 128,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Ausgeschieden",
+        "AnzahlvonObjectName": 52,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Axt",
+        "AnzahlvonObjectName": 350,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Axtklinge",
+        "AnzahlvonObjectName": 107,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Band",
+        "AnzahlvonObjectName": 129,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Baststoff",
+        "AnzahlvonObjectName": 80,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Bauchschnur",
+        "AnzahlvonObjectName": 70,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Becher",
+        "AnzahlvonObjectName": 230,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Behälter",
+        "AnzahlvonObjectName": 322,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Beil",
+        "AnzahlvonObjectName": 533,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Beilklinge",
+        "AnzahlvonObjectName": 142,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      },
+      {
+        "ObjectName": "Beinring",
+        "AnzahlvonObjectName": 55,
+        "Begriff bereinigt": NaN,
+        "Begriff 2": NaN
+      }
+    ]
+  },
+  "file3_summary": {
+    "total_rows": 3157,
+    "columns": [
+      "TermMasterID",
+      "CN",
+      "term",
+      "TermID",
+      "AAT_ID",
+      "Alt_TermID"
+    ],
+    "first_30_samples": [
+      {
+        "TermMasterID": 1634165,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB",
+        "term": "Objektsammlung",
+        "TermID": 2220616,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634168,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB",
+        "term": "Bekleidung",
+        "TermID": 2220623,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634169,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA",
+        "term": "Militärische Bekleidung",
+        "TermID": 2220624,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634170,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA.AAA",
+        "term": "Rüstung",
+        "TermID": 2220625,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634171,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAA.AAB",
+        "term": "Uniform",
+        "TermID": 2220626,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634174,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAD",
+        "term": "Penisfutteral",
+        "TermID": 2220629,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634175,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAE",
+        "term": "Hose",
+        "TermID": 2220630,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634176,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAF",
+        "term": "Poncho",
+        "TermID": 2220631,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634185,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAG",
+        "term": "Bluse",
+        "TermID": 2220640,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634187,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH",
+        "term": "Kleid",
+        "TermID": 2220642,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634706,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH.AAA",
+        "term": "Überkleid",
+        "TermID": 2221212,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1635752,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAH.AAB",
+        "term": "Unterkleid",
+        "TermID": 2222275,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634188,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAI",
+        "term": "Gürtel",
+        "TermID": 2220643,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1635828,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAI.AAA",
+        "term": "Gürtelgehänge",
+        "TermID": 2222368,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634189,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAJ",
+        "term": "Rock",
+        "TermID": 2220644,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1635874,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAJ.AAA",
+        "term": "Unterrock",
+        "TermID": 2222419,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634202,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAK",
+        "term": "Hemd",
+        "TermID": 2220658,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634216,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL",
+        "term": "Kopfbedeckung",
+        "TermID": 2220672,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634231,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAA",
+        "term": "Hut",
+        "TermID": 2220687,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634234,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAB",
+        "term": "Kappe",
+        "TermID": 2220690,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634240,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAC",
+        "term": "Kopftuch",
+        "TermID": 2220696,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634252,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAD",
+        "term": "Mütze",
+        "TermID": 2220708,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634602,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAE",
+        "term": "Kopfband",
+        "TermID": 2221086,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634603,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAF",
+        "term": "Kopfschnur",
+        "TermID": 2221088,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634704,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAG",
+        "term": "Turban",
+        "TermID": 2221210,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1635719,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAH",
+        "term": "Haube",
+        "TermID": 2222233,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1635760,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAL.AAI",
+        "term": "Kranz",
+        "TermID": 2222285,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634228,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAM",
+        "term": "Hochzeitskleidung",
+        "TermID": 2220684,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634229,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAM.AAA",
+        "term": "Hochzeitskostüm-Braut",
+        "TermID": 2220685,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      },
+      {
+        "TermMasterID": 1634579,
+        "CN": "AUT.AAA.AAC.AAH.ADL.AAB.AAB.AAM.AAB",
+        "term": "Hochzeitskostüm-Bräutigam",
+        "TermID": 2221061,
+        "AAT_ID": NaN,
+        "Alt_TermID": NaN
+      }
+    ]
+  }
+}
