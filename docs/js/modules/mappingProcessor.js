@@ -151,12 +151,16 @@ export class MappingProcessor {
     if (!reference || reference.length === 0) return map;
 
     for (const ref of reference) {
-      const begriff = ref['Begriff bereinigt'];
-      if (begriff && begriff.trim() && begriff !== '*') {
-        map.set(ref.ObjectName, begriff.trim());
+      // Try different column name variations
+      const begriff = ref['Begriff bereinigt'] || ref['BegriffBereinigt'] || ref['begriff_bereinigt'];
+      const objectName = ref['ObjectName'] || ref['Objektname'];
+
+      if (begriff && objectName && begriff.trim() && begriff !== '*') {
+        map.set(objectName.trim(), begriff.trim());
       }
     }
 
+    console.log(`✓ Built reference map with ${map.size} mappings`);
     return map;
   }
 

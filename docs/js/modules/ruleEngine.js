@@ -47,7 +47,7 @@ export class RuleEngine {
 
     // Step 2: Check for exact match in thesaurus
     const exactMatch = thesaurus.find(t =>
-      t.term.toLowerCase() === objectName.toLowerCase()
+      t.term && t.term.toLowerCase() === objectName.toLowerCase()
     );
     if (exactMatch) {
       return {
@@ -181,7 +181,7 @@ export class RuleEngine {
    */
   findInThesaurus(term, thesaurus) {
     return thesaurus.find(t =>
-      t.term.toLowerCase() === term.toLowerCase()
+      t.term && t.term.toLowerCase() === term.toLowerCase()
     );
   }
 
@@ -193,6 +193,8 @@ export class RuleEngine {
     let bestScore = 0;
 
     for (const entry of thesaurus) {
+      if (!entry.term) continue; // Skip entries without term
+
       const distance = this.levenshteinDistance(
         term.toLowerCase(),
         entry.term.toLowerCase()
