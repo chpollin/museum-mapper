@@ -1,11 +1,19 @@
 /**
  * Mapping Processor - Core mapping logic (rules + AI)
- * This is a placeholder - will be implemented in detail later
  */
+
+import { RuleEngine } from './ruleEngine.js';
 
 export class MappingProcessor {
   constructor(app) {
     this.app = app;
+    this.ruleEngine = new RuleEngine();
+    this.stats = {
+      ok: 0,
+      check: 0,
+      error: 0,
+      ignore: 0
+    };
   }
 
   async process() {
@@ -14,6 +22,9 @@ export class MappingProcessor {
     const { objects, thesaurus, reference } = this.app.state.data;
     const { method, apiKey, confidenceThreshold } = this.app.state.config;
 
+    // Build reference map for fast lookup
+    const referenceMap = this.buildReferenceMap(reference);
+
     // Filter objects (≤12 occurrences as per requirements)
     const objectsToMap = objects.filter(obj => {
       const count = parseInt(obj.AnzahlvonObjectName) || 0;
@@ -21,39 +32,144 @@ export class MappingProcessor {
     });
 
     console.log(`Processing ${objectsToMap.length} objects`);
+    console.log(`Using method: ${method}`);
+    console.log(`Reference mappings: ${referenceMap.size}`);
+    console.log(`Thesaurus terms: ${thesaurus.length}`);
 
     const results = [];
+    const lowConfidenceForAI = [];
     let processed = 0;
 
-    // For now, simulate processing
-    for (const obj of objectsToMap) {
-      // Update progress
-      processed++;
-      this.updateProgress(processed, objectsToMap.length);
+    this.stats = { ok: 0, check: 0, error: 0, ignore: 0 };
 
-      // Simulate processing delay
-      if (processed % 100 === 0) {
-        await this.sleep(50);
+    // Phase 1: Apply rule-based mapping
+    for (const obj of objectsToMap) {
+      processed++;
+
+      // Check if it's a non-object (administrative note)
+      if (this.ruleEngine.isNonObject(obj.ObjectName)) {
+        results.push({
+          objectName: obj.ObjectName,
+          frequency: obj.AnzahlvonObjectName,
+          thesaurusTerm: '—',
+          cn: '',
+          termId: '',
+          termMasterId: '',
+          confidence: 0,
+          status: 'IGNORIERT',
+          method: 'Regel: Nicht-Objekt',
+          reasoning: 'Administrativer Vermerk, kein Objekt'
+        });
+        this.stats.ignore++;
+        this.updateProgress(processed, objectsToMap.length);
+        continue;
       }
 
-      // Placeholder: Create dummy result
-      const result = {
-        objectName: obj.ObjectName,
-        thesaurusTerm: '—',
-        cn: '',
-        termId: '',
-        termMasterId: '',
-        confidence: 0,
-        status: 'MUSS_BEARBEITET_WERDEN',
-        method: 'pending',
-        reasoning: 'Not implemented yet'
-      };
+      // Apply rule engine
+      const mapping = this.ruleEngine.mapObject(
+        obj.ObjectName,
+        thesaurus,
+        referenceMap
+      );
+
+      let result;
+
+      if (mapping.term) {
+        // Find full thesaurus entry
+        const thesaurusEntry = thesaurus.find(t =>
+          t.term.toLowerCase() === mapping.term.toLowerCase()
+        );
+
+        result = {
+          objectName: obj.ObjectName,
+          frequency: obj.AnzahlvonObjectName,
+          thesaurusTerm: mapping.term,
+          cn: thesaurusEntry?.CN || '',
+          termId: thesaurusEntry?.TermID || '',
+          termMasterId: thesaurusEntry?.TermMasterID || '',
+          confidence: mapping.confidence,
+          status: this.getStatus(mapping.confidence, confidenceThreshold),
+          method: mapping.method,
+          reasoning: mapping.reasoning
+        };
+
+        // Track stats
+        if (result.status === 'OK') this.stats.ok++;
+        else if (result.status === 'PRÜFEN') this.stats.check++;
+        else this.stats.error++;
+
+        // If confidence is low and AI is enabled, mark for AI processing
+        if (method === 'hybrid' && mapping.confidence < confidenceThreshold) {
+          lowConfidenceForAI.push({ obj, result, index: results.length });
+        }
+
+      } else {
+        // No match found
+        result = {
+          objectName: obj.ObjectName,
+          frequency: obj.AnzahlvonObjectName,
+          thesaurusTerm: '—',
+          cn: '',
+          termId: '',
+          termMasterId: '',
+          confidence: 0,
+          status: 'MUSS_BEARBEITET_WERDEN',
+          method: 'Keine Regel',
+          reasoning: 'Kein Thesaurus-Match gefunden'
+        };
+        this.stats.error++;
+
+        // Mark for AI processing if enabled
+        if (method === 'hybrid') {
+          lowConfidenceForAI.push({ obj, result, index: results.length });
+        }
+      }
 
       results.push(result);
+      this.updateProgress(processed, objectsToMap.length);
+
+      // Yield to browser every 100 items
+      if (processed % 100 === 0) {
+        await this.sleep(0);
+      }
+    }
+
+    // Phase 2: AI processing for low-confidence items
+    if (method === 'hybrid' && apiKey && lowConfidenceForAI.length > 0) {
+      console.log(`🤖 Processing ${lowConfidenceForAI.length} items with AI...`);
+      await this.processWithAI(lowConfidenceForAI, results, thesaurus, apiKey, confidenceThreshold);
     }
 
     this.app.state.data.results = results;
     console.log('✓ Processing complete');
+    console.log('Stats:', this.stats);
+  }
+
+  buildReferenceMap(reference) {
+    const map = new Map();
+    if (!reference || reference.length === 0) return map;
+
+    for (const ref of reference) {
+      const begriff = ref['Begriff bereinigt'];
+      if (begriff && begriff.trim() && begriff !== '*') {
+        map.set(ref.ObjectName, begriff.trim());
+      }
+    }
+
+    return map;
+  }
+
+  async processWithAI(items, results, thesaurus, apiKey, confidenceThreshold) {
+    // TODO: Implement AI processing with Claude Haiku 4.5
+    // For now, just log that it would be processed
+    console.log(`AI processing would improve ${items.length} items`);
+    console.log('AI integration coming next...');
+  }
+
+  getStatus(confidence, threshold) {
+    if (confidence >= threshold) return 'OK';
+    if (confidence >= 50) return 'PRÜFEN';
+    return 'MUSS_BEARBEITET_WERDEN';
   }
 
   updateProgress(current, total) {
@@ -70,16 +186,16 @@ export class MappingProcessor {
       progressText.textContent = `Verarbeitet: ${current.toLocaleString('de-DE')} / ${total.toLocaleString('de-DE')} (${percentage}%)`;
     }
 
-    // Update status bars (placeholder values)
-    const okPercent = Math.min(percentage * 0.6, 60);
-    const checkPercent = Math.min(percentage * 0.25, 25);
-    const errorPercent = Math.min(percentage * 0.12, 12);
-    const ignorePercent = Math.min(percentage * 0.03, 3);
+    // Update status bars with real stats
+    const okPercent = total > 0 ? (this.stats.ok / total) * 100 : 0;
+    const checkPercent = total > 0 ? (this.stats.check / total) * 100 : 0;
+    const errorPercent = total > 0 ? (this.stats.error / total) * 100 : 0;
+    const ignorePercent = total > 0 ? (this.stats.ignore / total) * 100 : 0;
 
-    this.updateStatusBar('ok', okPercent, Math.floor(current * 0.6));
-    this.updateStatusBar('check', checkPercent, Math.floor(current * 0.25));
-    this.updateStatusBar('error', errorPercent, Math.floor(current * 0.12));
-    this.updateStatusBar('ignore', ignorePercent, Math.floor(current * 0.03));
+    this.updateStatusBar('ok', okPercent, this.stats.ok);
+    this.updateStatusBar('check', checkPercent, this.stats.check);
+    this.updateStatusBar('error', errorPercent, this.stats.error);
+    this.updateStatusBar('ignore', ignorePercent, this.stats.ignore);
   }
 
   updateStatusBar(status, percentage, count) {
