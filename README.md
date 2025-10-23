@@ -50,31 +50,72 @@ Browser-based tool to automatically map 40,000+ heterogeneous object names to st
 
 ---
 
-## Status: v1.0 Planning Phase
+## Status: v1.0 ✅ Ready for Production
 
-**Phase 1: Prototype** ✏️ (current)
+**Phase 1: Prototype** ✅ Completed
 - [x] Conception & specification
 - [x] Data analysis
-- [ ] Rule-based engine implementation
-- [ ] UI/UX implementation
+- [x] Rule-based engine implementation
+- [x] UI/UX implementation
 
-**Phase 2: AI Integration** 🔜
-- [ ] Claude Haiku 4.5 API integration
-- [ ] Prompt engineering
-- [ ] Batch processing
-- [ ] Testing with real data
+**Phase 2: AI Integration** ✅ Completed
+- [x] Claude Haiku 4.5 API integration
+- [x] Prompt engineering
+- [x] Batch processing
+- [x] Excel export with TMS format
+
+**Phase 3: Future Enhancements** 🔜
+- [ ] Getty AAT-ID automatic assignment
+- [ ] Multi-language support
+- [ ] Batch file processing
+- [ ] Advanced analytics dashboard
 
 ---
 
-## Getting Started (Planned)
+## Getting Started
 
-1. Open `https://your-username.github.io/museum-mapper`
-2. Upload your object names file (.xlsx, .csv)
-3. Upload your thesaurus file
-4. Optional: Add Anthropic API key for AI mapping
-5. Click "Process"
-6. Review results, make corrections
-7. Download enriched data
+### Live Demo
+
+Visit: **https://chpollin.github.io/museum-mapper/**
+
+### Usage
+
+1. **Upload Files**
+   - Object names (.xlsx/.csv) - Required
+   - Thesaurus (.xlsx/.csv) - Required
+   - Reference mappings (.xlsx/.csv) - Optional
+
+2. **Configure Mapping**
+   - Choose method: "Nur Regelbasiert" (free) or "Hybrid" (rules + AI)
+   - For hybrid: Enter your [Anthropic API key](https://console.anthropic.com/)
+   - Adjust confidence threshold (default: 80%)
+
+3. **Process**
+   - Click "Verarbeitung starten"
+   - Watch real-time progress
+   - See status distribution (OK / PRÜFEN / BEARBEITEN)
+
+4. **Review & Export**
+   - Filter and search results
+   - Click on rows to see details and AI reasoning
+   - Export as Excel (.xlsx) with TMS-compatible format
+
+### Mapping Rules
+
+The app applies these rules automatically:
+
+1. **Reference lookup** - Exact matches from your reference file (100% confidence)
+2. **Diminutive removal** - "Körbchen" → "Korb" (90% confidence)
+3. **Material prefix removal** - "Steinbeil" → "Beil" (85% confidence)
+4. **Keyword extraction** - Finds main object in long descriptions (75% confidence)
+5. **Fuzzy matching** - Levenshtein distance for typos (70%+ confidence)
+6. **AI enhancement** - Claude Haiku 4.5 for complex cases (variable confidence)
+
+### Expected Results
+
+- **Rules only**: 40-50% OK, ~7 minutes
+- **Hybrid (recommended)**: 70-80% OK, ~45 minutes, ~€5-10
+- All results include confidence scores and reasoning
 
 ---
 
